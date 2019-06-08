@@ -31,7 +31,7 @@ namespace IntegracaoSpotify_MusicaApi.Controllers
             return JsonConvert.DeserializeObject<BuscaMusica>(msg.Replace("\n",""));
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Musica>> GetMusicaPorId(string id)
         {
             string token = Request.Headers["Authorization"];
@@ -45,8 +45,8 @@ namespace IntegracaoSpotify_MusicaApi.Controllers
             return JsonConvert.DeserializeObject<Musica>(msg.Replace("\n", ""));
         }
 
-        [HttpGet("busca/letra")]
-        public async Task<ActionResult<MusicasLetra>> GetMusicaLetra(string id, string artista)
+        [HttpGet("{id}/letra")]
+        public async Task<ActionResult<MusicasLetra>> GetMusicaLetra(string id)
         {
             string token = Request.Headers["Authorization"];
 
